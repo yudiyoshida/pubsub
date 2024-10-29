@@ -1,5 +1,5 @@
 interface Subscriber {
-  message(data: any): void;
+  message(topic: string, data: any): void;
 }
 
 export class PubSub {
@@ -28,7 +28,7 @@ export class PubSub {
     if (!this.topics[topic]) return;
 
     this.topics[topic].forEach((s) => {
-      s.message(data);
+      s.message(topic, data);
     })
     console.log('----')
   }
@@ -37,7 +37,7 @@ export class PubSub {
 export class SubscriberImpl implements Subscriber {
   constructor(private name: string) {}
 
-  message(data: any): void {
-    console.log(`console log from ${this.name}: ${data}`)
+  message(topic: string, data: any): void {
+    console.log(`Subscriber ${this.name} received message from topic ${topic}: ${data}`);
   }
 }
