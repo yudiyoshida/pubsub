@@ -1,0 +1,2 @@
+- Repositório implementando um pubsub beeem simplificado.
+- Apenas para entender como funciona esse padrão que é tão famoso e utilizado em diversas ferramentas.
